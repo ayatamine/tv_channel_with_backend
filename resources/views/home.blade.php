@@ -1,308 +1,389 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>My Profile</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-    <style type="text/css">
+@extends('layouts.app')
+@section('title','الرئيسية')
+@section('content')
 
-body{
-    margin-top:20px;
-    color: #1a202c;
-    text-align: left;
-    background-color: #e2e8f075;
-}
-.main-body {
-    padding: 15px;
-}
-.main-breadcrumb{box-shadow: 0px 1px 1px 0 #c7c7c7}
+    <section class="menu cid-sgk2LE65xo" once="menu" id="menu2-y">
 
-.nav-link {
-    color: #4a5568;
-}
-.card {
-    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
-}
 
-.card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 0 solid rgba(0,0,0,.125);
-    border-radius: .25rem;
-}
 
-.card-body {
-    flex: 1 1 auto;
-    min-height: 1px;
-    padding: 1rem;
-}
+        <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm bg-color transparent">
+            <div class="container pt-2">
+                <div class="d-none d-lg-flex justify-content-center top-social-media ">
+                    <div class="social-icon"><a href=""><i class="fa fa-facebook"></i></a></div>
+                    <div class="social-icon"><a href=""><i class="fa fa-twitter"></i></a></div>
+                    <div class="social-icon"><a href=""><i class="fa fa-youtube"></i></a></div>
+                    <div class="social-icon"><a href=""><i class="fa fa-instagram"></i></a></div>
+                </div>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                </button>
+                <div class="menu-logo">
+                    <div class="navbar-brand">
+                        <span class="navbar-logo">
+                        <a href="">
+                            <img src="assets/images/logo.png" alt="logo" title="" style="height: 3.8rem;">
+                        </a>
+                    </span>
 
-.gutters-sm {
-    margin-right: -8px;
-    margin-left: -8px;
-}
+                    </div>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-.gutters-sm>.col, .gutters-sm>[class*=col-] {
-    padding-right: 8px;
-    padding-left: 8px;
-}
-.mb-3, .my-3 {
-    margin-bottom: 1rem!important;
-}
+                    <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
+                        <li class="nav-item">
+                            <a class="nav-link link text-white display-6 active" href="index.html">الرئيسية</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link link text-white display-6" href="lives.html">
+                            البث المباشر</a></li>
+                        <li class="nav-item"><a class="nav-link link text-white display-6" href="programs.html">البرامج</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link link text-white display-6" href="#contact-form">تواصل معنا</a>
+                        </li>
+                    </ul>
 
-.bg-gray-300 {
-    background-color: #e2e8f0;
-}
-.h-100 {
-    height: 100%!important;
-}
-.shadow-none {
-    box-shadow: none!important;
-}
-.content-label{    color: #000000cc;
-    font-weight: bold;}
-.content-value{
-    color: #888da8
-}
-    </style>
-</head>
-<body>
-
-<div class="container">
-    @if (session('status'))
-    <div class="alert alert-success" role="alert">
-        {{ session('status') }}
-    </div>
-    @endif
-      <!-- Breadcrumb -->
-      <nav aria-label="breadcrumb" class="main-breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Profile</li>
-        </ol>
-      </nav>
-      <!-- /Breadcrumb -->
-
-      <div class="row gutters-sm">
-        <div class="col-md-4 d-none d-md-block">
-          <div class="card">
-            <div class="card-body">
-              <nav class="nav flex-column nav-pills nav-gap-y-1">
-                <a href="#profile" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded active">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>Profile Information
-                </a>
-                <a href="#account" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded">
-                  <img src="{{asset('img/absence.png')}}" height="20" width="20" class="feather feather-user " style="margin-right: 0.8rem;opacity:0.7" alt="absence">My Absences
-                </a>
-                <a href="#security" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield mr-2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>My Marks
-                </a>
-                <a href="{{ route('logout') }}"
-                onclick="event.preventDefault();
-                              document.getElementById('logout-form').submit();"
-                              class="nav-item nav-link has-icon nav-link-faded">
-                    <img src="{{asset('img/logout.png')}}" height="20" width="20" class="feather feather-user " style="margin-right: 0.8rem;opacity:0.7" alt="logout">Log Out
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
-              </nav>
+                </div>
             </div>
-          </div>
+        </nav>
+    </section>
+
+    <!-- <section class="engine"><a href="https://mobirise.info/q">responsive web templates</a></section> -->
+    <section class="carousel slide cid-sggklav0gr" data-interval="false" id="slider1-3" style="max-height:690px">
+
+
+
+        <div class="full-screen">
+            <div class="mbr-slider slide carousel" data-keyboard="false" data-ride="false" data-interval="3000" data-pause="true">
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item slider-fullscreen-image active" data-bg-video-slide="false" style="background-image: url(assets/images/background1.jpg);">
+                        <div class="container container-slide">
+                            <div class="image_wrapper">
+                                <div class="mbr-overlay" style="opacity: 0.8;background-color: rgb(1 37 101);max-height: 690px;"></div><img src="assets/images/background1.jpg" alt="" title="">
+                                <!--   <div class="carousel-caption justify-content-center">
+                                    <div class="container text-right w-100 pr-3">
+                                        <div class="">
+                                            <h2 class="mbr-fonts-style display-1 pr-3 mb-2">نفتخر&nbsp;</h2>
+                                            <div class="mbr-section-btn text-right" buttons="0"> <a class="btn  display-1 btn-success slider-title-btn" href="">بهويتنا</a></div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item slider-fullscreen-image " data-bg-video-slide="false" style="background-image: url(assets/images/background2.jpg);">
+                        <div class="container container-slide">
+                            <div class="image_wrapper">
+                                <div class="mbr-overlay" style="opacity: 0.7; background-color: rgb(0, 56, 130);"></div><img src="assets/images/background2.jpg" alt="" title="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item slider-fullscreen-image" data-bg-video-slide="false" style="background-image: url(assets/images/background3.jpg);">
+                        <div class="container container-slide">
+                            <div class="image_wrapper">
+                                <div class="mbr-overlay" style="opacity: 0.7; background-color: rgb(2, 46, 105);"></div><img src="assets/images/background3.jpg" alt="" title="">
+                            </div>
+                        </div>
+                    </div>
+                </div><a data-app-prevent-settings="" class="carousel-control carousel-control-prev" role="button" data-slide="prev" href="#slider1-3"><span aria-hidden="true" class="mbri-left mbr-iconfont"></span><span class="sr-only">Previous</span></a>
+                <a data-app-prevent-settings="" class="carousel-control carousel-control-next" role="button" data-slide="next" href="#slider1-3"><span aria-hidden="true" class="mbri-right mbr-iconfont"></span><span class="sr-only">Next</span></a>
+            </div>
         </div>
-        <div class="col-md-8">
-          <div class="card">
-            <div class="card-header border-bottom mb-3 d-flex d-md-none">
-              <ul class="nav nav-tabs card-header-tabs nav-gap-x-1" role="tablist">
-                <li class="nav-item">
-                  <a href="#profile" data-toggle="tab" class="nav-link has-icon active"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></a>
-                </li>
-                <li class="nav-item">
-                  <a href="#account" data-toggle="tab" class="nav-link has-icon"><img src="{{asset('img/absence.png')}}" height="20" width="20" class="feather feather-user " style="margin-right: 0.8rem;opacity:0.7" alt="absence"></a>
-                </li>
-                <li class="nav-item">
-                  <a href="#security" data-toggle="tab" class="nav-link has-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></a>
-                </li>
-                <li class="nav-item">
-                  <a href="{{route('logout')}}" onclick="event.preventDefault();
-                  document.getElementById('logout-form').submit();" data-toggle="tab" class="nav-link has-icon"><img src="{{asset('img/logout.png')}}" height="20" width="20" class="feather feather-user " style="margin-right: 0.8rem;opacity:0.7" alt="logout"></a>
-                </li>
-              </ul>
-            </div>
-            <div class="card-body tab-content">
-              <div class="tab-pane active" id="profile">
-                <h6>PROFILE INFORMATIONS</h6>
-                <hr>
 
-                <div class="row">
-                    <div class="form-group col-sm-6 col-md-4">
-                      <label for="fullName" class="content-label">Full Name</label>
-                      <h6 class="content-value">{{$student->name}}</h6>
-                    </div>
-                    <div class="form-group col-sm-6 col-md-4">
-                      <label for="email" class="content-label">E-mail</label>
-                      <h6 class="content-value">{{$student->email}}</h6>
-                    </div>
-                    <div class="form-group col-sm-6 col-md-4">
-                      <label for="classes" class="content-label">Class</label>
-                      <h6 class="content-value">{{$student->class ? $student->class->name : 'no class yet'}}</h6>
-                    </div>
-                    <div class="form-group col-sm-6 col-md-4">
-                      <label for="classes" class="content-label">Modules Number</label>
-                      <h6 class="content-value">{{$student->class ? count($student->class->matieres) : 0}}</h6>
-                    </div>
-              </div>
-              </div>
-              <div class="tab-pane" id="account">
-                <h6>Class Informations</h6>
-                <hr>
-                <div class="p-3">
-                  <div class="">
+    </section>
+
+    <section class="header7 cid-sggtLdvPMZ" id="header7-8">
+
+
+        <div class="container">
+            <div class="media p-3 pr-md-3 text-right signal-channel" dir="rtl">
+                <img class="align-self-start ml-3" src="assets/images/antel.png" alt="antel" style="    max-height: 85px;">
+                <div class="media-body">
+
                     <div class="row">
-                      <div class="form-group col-sm-6 col-md-4">
-                        <label for="classes" class="content-label">Studing days number</label>
-                        <h6 class="content-value">{{$student->class ? $student->class->studing_day_number : 'not presented yet'}}</h6>
-                      </div>
-                      <div class="form-group col-sm-6 col-md-4">
-                        <label for="classes" class="content-label">Maximum absence number</label>
-                        <h6 class="content-value">{{$student->class ? $student->class->max_absence_number : 0}}</h6>
-                      </div>
-                      <div class="form-group col-sm-6 col-md-4">
-                        <label for="classes" class="content-label">Your Absence</label>
-                        <h6 class="content-value">{{$student ? $student->absence_number : 0}}</h6>
-                      </div>
+
+                        <h5 class="mt-0 col-12 mb-3 text-primary " id="signal-channel-title">يمكنكم مشاهدة بث قناة حضرموت على قمر النايل سات على التردد التلي </h5>
+                        <div class="col-5 text-center mt-12">
+                            <p class="mb-05">التردد</p>
+                            <h6><strong>12015</strong> <span class="mr-1">عمودي</span></h6>
+                        </div>
+                        <div class="col-5 text-center">
+                            <p class="mb-05">معدل الترميز</p>
+                            <h6><strong>27500</strong></h6>
+                        </div>
                     </div>
-                  </div>
-                  <hr>
-                  <h6>My Absence progress</h6>
-                  <hr>
-                  <div class="progress">
-                    @php
-                        $absence_percentage = $student->absencePercentage();
-                        switch ($absence_percentage) {
-                          case ( $absence_percentage > 70) :
-                              $progress_color = 'bg-danger';
-                            break;
-                          case ( $absence_percentage < 70 &&  $absence_percentage > 40) :
-                              $progress_color = 'bg-warning';
-                            break;
-
-                          default:
-                               $progress_color = '';
-                            break;
-                        }
-                    @endphp
-                    <div class="progress-bar {{$progress_color}}" role="progressbar" style="width: {{$absence_percentage}}%;" aria-valuenow="{{$absence_percentage}}" aria-valuemin="0" aria-valuemax="100">{{$absence_percentage}}%</div>
-                  </div>
                 </div>
-              </div>
-              <div class="tab-pane" id="security">
-                <h6>List of Marks by Modules</h6>
-                <hr>
-                <table class="table table-striped" id="marks">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Module</th>
-                        <th scope="col">Mark</th>
-                        <th scope="col">cofficient</th>
-                        <th scope="col">Total</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      @php
-                          $sum = 0;
-                      @endphp
-                      @forelse ($student->marks as $key => $m)
-                      <tr>
-                        <th scope="row">{{$key++}}</th>
-                        <td>{{$m->matiere->name}}</td>
-                        <td><strong class="text-success">{{$m->mark}}</strong> / {{$m->matiere->total}}</td>
-                        <td>{{$m->matiere->cofficient}}</td>
-                        <td>{{$m->mark * $m->matiere->cofficient}}</td>
-                      </tr>
-
-                      @php
-                          $sum+=$m->mark;
-                      @endphp
-                      @empty
-                            <td colspan="4">no mark founded!</td>
-                      @endforelse
-                      <tr>
-                        <th scope="row">#</th>
-                        <td colspan="2"></td>
-                        <td><strong>{{$student->marksAverage()['cofficient_sum']}}</strong></td>
-                        <td>
-                          <strong class={{$student->marksAverage()['result'] > 10 ? 'text-success' : 'text-danger'}}>
-                            {{$student->marksAverage()['result']}}</strong>
-                        </td>
-                      </tr>
-                    </tbody>
-                </table>
-                <div class="bg-white p-3 text-center">
-                  <button type="button" class="btn btn-warning" onclick="printtag('marks')"
-                  ><i class="fa fa-print"></i> طباعة الكشف</button>
-                  <button type="button" class="btn btn-info" onclick="printtagAndDisplay('present_certificate')"
-                  ><i class="fa fa-print"></i> شهادة الحضور</button>
-                  <button type="button" class="btn btn-success" onclick="printtagAndDisplay('success_certificate')"
-                  ><i class="fa fa-print"></i> شهادة الاجتياز</button>
-                </div>
-                <div id="present_certificate" class="text-right" style="opacity: 0">
-                  <h5 class="text-center">شهادة حضور</h5>
-                  <h6>الى الطالب {{$student->name}}</h6>
-
-                   إن {{$settings->site_name}} تتمنى لك أسمى عبارات التقدير والنجاح في مشوارك وتشكرك على الحضور
-                </div>
-                <div id="success_certificate"  class="text-right" style="opacity: 0">
-                  <h5 class="text-center">شهادة اجتياز</h5>
-                  <h6>الى الطالب {{$student->name}}</h6>
-
-                   إن {{$settings->site_name}} تتمنى لك أسمى عبارات التقدير والنجاح في مشوارك وتشكرك على اجتيازك له المرحلة بنجاح
-                </div>
-              </div>
+                <hr id="hr-bottom-shadow">
             </div>
-          </div>
+            <div class="media-container-row" dir="ltr">
+
+                <div class="media-content align-right ml-1" style="    padding-top: 2rem;">
+                    <h5 class="mbr-section-title mbr-white pb-3 mbr-fonts-style font-weight-bolder sidelines">
+                        <span></span>نبدة عنا
+                    </h5>
+                    <div class="mbr-section-text mbr-white pb-3">
+                        <p class="mbr-text mbr-fonts-style ">
+                            قطاع تلفزيون حضرموت، منصة إعلامية رسمية للأحداث والفعاليات في حضرموت واليمن، تمثّل إضافة إعلامية في تقديم خدمة برامجية متميزة من البرامج الإخبارية والسياسية والمتنوعة. جاء انطلاق قطاع تلفزيون حضرموت ، كمنصة إعلامية رسمية للأحداث والفعاليات في حضرموت واليمن
+                            ، تنطلق من الدور الريادي لحضرموت في مجال الإعلام ومن عبق تاريخ وحضارة حضرموت عبر الأزمان ، وتعمل على تقديم مجموعة من البرامج الإخبارية والسياسية والاقتصادية والمنوعة، إلى جانب دورها الكبير في إنتاج العديد من الأعمال الدرامية
+                            والفنية. بدأت إطلاق بثها التجريبي في العاشر من شهر فبراير من العام 2020م لتكون المنبر الإعلامي الذي ينقل الإبداع والتجدد في نبض حضرموت والوطن
+
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="mbr-figure pr-2 text-right" style="width: 100%;margin-top: -2rem;">
+                    <h5 class="mbr-section-title mbr-white pb-3 mbr-fonts-style font-weight-bolder sidelines">
+                        <span></span>
+                        <a class="font-weight-bolder" href="lives.html">البث المباشر</a>
+                    </h5>
+                    <iframe class="mbr-embedded-video" src="https://www.youtube.com/embed/uNCr7NdOJgw?rel=0&amp;amp;showinfo=0&amp;autoplay=0&amp;loop=0" width="1280" height="720" frameborder="0" allowfullscreen></iframe></div>
+
+            </div>
         </div>
-      </div>
+    </section>
 
-    </div>
-<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="http://netdna.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-function printtag(tagid) {
-  var hashid = "#"+ tagid;
-  var tagname =  $(hashid).prop("tagName").toLowerCase() ;
-  var attributes = "";
-  var attrs = document.getElementById(tagid).attributes;
-    $.each(attrs,function(i,elem){
-      attributes +=  " "+  elem.name+" ='"+elem.value+"' " ;
-    })
+    <section class="clients cid-sggx34dSJt pb-4" data-interval="false" id="programs-section">
 
 
-  var divToPrint= $(hashid).html() ;
-  var head = "<html dir='rtl'><head>"+ $("head").html() + "</head>" ;
-  var allcontent = head + "<body  onload='window.print()' >"+ "<" + tagname + attributes + ">" +  divToPrint + "</" + tagname + ">" +  "</body></html>"  ;
 
-  var newWin=window.open('','Print-Window');
+        <div class="container mb-5">
+            <div class="media-container-row">
+                <div class="col-12 align-center">
+                    <h3 class="mbr-section-title mbr-white pb-3 mbr-fonts-style font-weight-bolder sidelines text-white">
+                        <span class="header right"></span>البرامج<span class="header left"></span>
+                    </h3>
+                </div>
+            </div>
+        </div>
 
-  newWin.document.open();
+        <div class="container">
+            <div class="carousel slide d-none d-sm-block" role="listbox" data-pause="true" data-keyboard="false" data-ride="carousel" data-interval="5000">
+                <div class="carousel-inner" data-visible="5">
 
-  newWin.document.write(allcontent);
-  newWin.document.close();
- // setTimeout(function(){newWin.close();},10);
-}
-function printtagAndDisplay(tag){
-  $('#'+tag).css('opacity',1)
-  printtag(tag);
-  $('#'+tag).css('opacity',0)
-}
 
-</script>
-</body>
-</html>
+
+
+
+                    <div class="carousel-item pr-4 pl-4">
+                        <div class="media-container-row">
+                            <div class="col-md-4 program-wrapper">
+                                <a href="" class="wrap-img ">
+                                    <img src="assets/images/المحبره-والقلم2.png" class="img-responsive programs-img">
+                                </a>
+                                <h5 class="mt-3">
+                                    <a href="" class="text-white">زمن الورد</a>
+                                </h5>
+                            </div>
+                            <div class="col-md-4 program-wrapper">
+                                <a href="" class="wrap-img ">
+                                    <img src="assets/images/زمن-الرواد.png" class="img-responsive programs-img">
+                                </a>
+                                <h5 class="mt-3">
+                                    <a href="" class="text-white">زمن الورد</a>
+                                </h5>
+                            </div>
+                            <div class="col-md-4 program-wrapper">
+                                <a href="" class="wrap-img ">
+                                    <img src="assets/images/سباق-الخميس.png" class="img-responsive programs-img">
+                                </a>
+                                <h5 class="mt-3">
+                                    <a href="" class="text-white">زمن الورد</a>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item pr-4 pl-4">
+                        <div class="media-container-row">
+                            <div class="col-md-4 program-wrapper">
+                                <a href="" class="wrap-img ">
+                                    <img src="assets/images/المحبره-والقلم2.png" class="img-responsive programs-img">
+                                </a>
+                                <h5 class="mt-3">
+                                    <a href="" class="text-white">زمن الورد</a>
+                                </h5>
+                            </div>
+                            <div class="col-md-4 program-wrapper">
+                                <a href="" class="wrap-img ">
+                                    <img src="assets/images/زمن-الرواد.png" class="img-responsive programs-img">
+                                </a>
+                                <h5 class="mt-3">
+                                    <a href="" class="text-white">زمن الورد</a>
+                                </h5>
+                            </div>
+                            <div class="col-md-4 program-wrapper">
+                                <a href="" class="wrap-img ">
+                                    <img src="assets/images/سباق-الخميس.png" class="img-responsive programs-img">
+                                </a>
+                                <h5 class="mt-3">
+                                    <a href="" class="text-white">زمن الورد</a>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-controls">
+                        <a data-app-prevent-settings="" class="carousel-control carousel-control-next" role="button" data-slide="next">
+                            <span aria-hidden="true" class="mbri-right mbr-iconfont"></span>
+                            <span class="sr-only">Suivant</span>
+                        </a>
+                        <a data-app-prevent-settings="" class="carousel-control carousel-control-prev" role="button" data-slide="prev">
+                            <span aria-hidden="true" class="mbri-left mbr-iconfont"></span>
+                            <span class="sr-only">Précédent</span>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+            <div id="carouselExampleControls" class="carousel slide d-sm-none" data-ride="carousel">
+                <div class="carousel-inner row text-center">
+
+                    <div class="program-wrapper carousel-item active" style="margin: auto;
+                    height: 350px;
+                    padding: 3rem;
+                    align-items: center;
+                    justify-content: center;">
+                        <div class="col-10" style="height: 80%;">
+                            <a href="" class="wrap-img ">
+                                <img src="assets/images/المحبره-والقلم2.png" class="img-responsive programs-img h-100">
+                            </a>
+                            <h5 class="mt-3">
+                                <a href="" class="text-white">زمن الورد</a>
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="program-wrapper carousel-item " style="margin: auto;
+                    height: 350px;
+                    padding: 3rem;
+                    align-items: center;
+                    justify-content: center;">
+                        <div class="col-10" style="height: 80%;">
+                            <a href="" class="wrap-img ">
+                                <img src="assets/images/slider.png" class="img-responsive programs-img h-100">
+                            </a>
+                            <h5 class="mt-3">
+                                <a href="" class="text-white">زمن الورد</a>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
+            <div class="text-center mt-3 pt-2">
+                <a href="programs.html" class="btn bg-white  font-weight-bold btn-lg more-programs-btn">المزيد</a>
+            </div>
+    </section>
+
+
+    <section once="footers" class="cid-sggxbRnqr0" id="footer7-m">
+
+
+        <div class="container" dir='rtl'>
+            <div class="row">
+                <div class="col-md-7 m-auto m-sm-0">
+                    <h3 class="mbr-section-title mbr-white pb-3 mbr-fonts-style font-weight-bolder sidelines text-white text-right">
+                        </span>تواصل معنا<span class="header left"></span>
+                    </h3>
+                    <form method="post" id="contact-form">
+
+                        <div class="row mb-3 ">
+                            <div class="group col-sm-6">
+                                <input type="text" required>
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>الاسم *</label>
+                            </div>
+
+                            <div class="group col-sm-6">
+                                <input type="email" required>
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>البريد الالكتروني *</label>
+                            </div>
+                        </div>
+                        <div class="row mb-3 ">
+                            <div class="group col-sm-6">
+                                <input type="text" id="phone_number" valid>
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label id="phonelabel">رقم الجوال</label>
+                            </div>
+
+                            <div class="group col-sm-6">
+                                <input type="text" required>
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>الموضوع *</label>
+                            </div>
+                        </div>
+                        <div class="row mb-3 ">
+                            <div class="group col-sm-12">
+                                <textarea name="" id="" rows="2" required></textarea>
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>نص الرسالة*</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-submit float-right">إرسال</button>
+
+
+
+                    </form>
+                </div>
+                <div class="col-md-5 contact-section">
+                    <h2 class="mbr-section-title mbr-white pb-4 mbr-fonts-style font-weight-bolder sidelines text-white text-right">
+                        تواصل معنا<span class="header left"></span>
+                    </h2>
+
+                    <div class="pt-1">
+                        <h5>معلومات التواصل</h5>
+                        <ul class=" list-unstyled p-0 mt-2">
+                            <li>
+                                هن االعنوان او الموقع <i class="fa fa-location-arrow ml-1" aria-hidden="true"></i>
+                            </li>
+                            <li>
+                                (+647) 0687459215 <i class="fa fa-phone ml-1" aria-hidden="true"></i>
+                            </li>
+                            <li>
+                                (+647) 6874515 <i class="fa fa-fax ml-1" aria-hidden="true"></i>
+                            </li>
+
+                        </ul>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="text-center col-12 mt-5" id="copyright-section">
+                <img src="assets/images/logo.png" alt="" class='img-responsive' id="logo-footer">
+                <h6 class="text-white mt-3 mb-4">
+                    جميع الحقوق محفوظة
+                </h6>
+                <li class="list-unstyled">
+                    <div class=" d-flex justify-content-center">
+                        <div class="social-icon"><a href=""><i class="fa fa-facebook"></i></a></div>
+                        <div class="social-icon"><a href=""><i class="fa fa-twitter"></i></a></div>
+                        <div class="social-icon"><a href=""><i class="fa fa-youtube"></i></a></div>
+                        <div class="social-icon"><a href=""><i class="fa fa-instagram"></i></a></div>
+                    </div>
+
+                </li>
+            </div>
+
+        </div>
+    </section>
+
+
+@endsection

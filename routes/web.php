@@ -11,14 +11,15 @@
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
-});
-Route::get('/', function () {
+}); */
+/* Route::get('/', function () {
     return view('welcome');
-});
+}); */
 
 
 Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 //Route::get('/profile', 'HomeController@profile')->name('user.profile');
