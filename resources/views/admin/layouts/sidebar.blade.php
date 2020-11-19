@@ -23,50 +23,31 @@
                 <ul class="nav nav-pills nav-sidebar ayat-nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                   <!-- Add icons to the links using the .nav-icon class
                        with font-awesome or any other icon font library -->
-                  @admin('super')
                   <li class="nav-item">
                     <a href="{{route('admin.home')}}" class="nav-link ayat-nl @if(Request::segment(2) =='') active @endif">
                         <i class="nav-icon fa fa-dashboard"></i>
                       <p>إعدادات الموقع</p>
                     </a>
                   </li>
-                  <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
-                      <i class="nav-icon fa fa-shopping-bag"></i>
-                      <p>
-                        إعدادات الصلاحيات
-                        <i class="fa fa-angle-left right"></i>
-                      </p>
+                  <li class="nav-item">
+                    <a href="{{route('sliders.index')}}" class="nav-link ayat-nl @if(Request::segment(2) =='sliders') active @endif">
+                        <i class="nav-icon fa fa-sliders"></i>
+                      <p>إعدادات السلايدر</p>
                     </a>
-                    <ul class="nav nav-treeview">
-                      <li class="nav-item">
-                        <a href="{{route('admin.roles')}}" class="nav-link ayat-nl @if(Request::segment(2) =='roles') active @endif">
-                          <i class="nav-icon fa fa-lock"></i>
-                          <p>الأدوار</p>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a href="{{route('admin.show')}}" class="nav-link ayat-nl @if(Request::segment(2) =='show') active @endif">
-                          <i class="nav-icon fa fa-user-circle-o"></i>
-                          <p>المجموعات</p>
-                        </a>
-                      </li>
-                    </ul>
                   </li>
-                  @endadmin
+                  <li class="nav-item">
+                    <a href="{{route('programs.index')}}" class="nav-link ayat-nl @if(Request::segment(2) =='programs') active @endif">
+                        <i class="nav-icon fa fa-tv"></i>
+                      <p>إعدادات البرامج</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{route('lives.index')}}" class="nav-link ayat-nl @if(Request::segment(2) =='lives') active @endif">
+                        <i class="nav-icon fa fa-youtube"></i>
+                      <p>البث المباشر</p>
+                    </a>
+                  </li>
 
-                  <li class="nav-item">
-                    <a href="{{route('classes.index')}}" class="nav-link ayat-nl @if(Request::segment(2) =='classes') active @endif">
-                        <i class="nav-icon fa fa-clone"></i>
-                      <p>الأقسام</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="{{route('admin.all_students')}}" class="nav-link ayat-nl @if(Request::segment(2) =='all_students') active @endif">
-                        <i class="nav-icon fa fa-users"></i>
-                      <p>إدارة الطلبة</p>
-                    </a>
-                  </li>
 
 
                 </ul>

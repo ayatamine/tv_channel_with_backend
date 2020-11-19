@@ -14,7 +14,10 @@ class SettingSeeder extends Seeder
         App\Setting::create([
             'site_name'=>'site_name',
             'site_email'=>'site_email@email.com',
-            'logo'=>'logo.png'
+            'logo'=>'logo.png',
+            'address'=>'some address',
+            'phone'=>'(+647) 0687459215 ',
+            'fax'=>'(+647) 6874515',
        ]);
     }
 }

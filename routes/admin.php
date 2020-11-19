@@ -6,6 +6,7 @@ Route::group([
     'prefix'     => config('multiauth.prefix', 'admin'),
 ], function () {
     Route::GET('/home', 'AdminController@index')->name('admin.home');
+
     // Login and Logout
     Route::GET('/', 'LoginController@showLoginForm')->name('admin.login');
     Route::POST('/', 'LoginController@login');
@@ -52,45 +53,13 @@ Route::group([
     'prefix'     => config('multiauth.prefix', 'admin'),
 ], function () {
 
-
+  Route::resource('/sliders','SliderController');
+  Route::resource('/programs','ProgramsController');
+  Route::get('/live','AdminSingleController@live')->name('lives.index');
+  Route::put('/updateLiveLink','AdminSingleController@updateLiveLink')->name('lives.update');
   //Route::get('/','AdminController@index')->name('admin.index');
   Route::post('/updateSiteSettings','AdminSingleController@updateSiteSettings')->name('updateSiteSettings');
   Route::post('/updateAccount','AdminSingleController@updateAccount')->name('admin.updateAccount');
-  //classes
-  Route::resource('/classes','ClassesController');
-  Route::post('/attachMatiere','ClassesController@attachMatiere')->name('classes.attachmatiere');
-  Route::get('{class}/{matiere}/detach','ClassesController@detachMatiere')->name('classes.detachMatiere');
-  Route::post('/createhMatiere','ClassesController@createAddMatiere')->name('classes.create_add_matiere');
-  //imports
-  Route::post('/importMatieres','MatiereController@importMatieres')->name( 'matieres.upload');
-  Route::post('/importStudents','AdminSingleController@importStudents')->name( 'students.upload');
-  Route::get('/ExportClassMarks/{class_id}','AdminSingleController@exportclassMarks')->name( 'class_marks.export');
-  Route::post('/importClassMarks','AdminSingleController@importclassMarks')->name( 'class_marks.upload');
-
-  //matieres
-  Route::resource('/matieres','MatiereController');
 
 
-  Route::get('/export_excel','AdminSingleController@exportexcel')->name('export_excel.excel');
-  Route::post('/import_excel','AdminSingleController@importexcel')->name('import_excel.excel');
-  Route::get('/Supervisor','AdminSingleController@Supervisorpage')->name('admin.Supervisor');
-
-});
-//student activities
-Route::group([
-    'namespace'  => 'App\Http\Controllers',
-    'middleware' => 'web',
-    'prefix'     => config('multiauth.prefix', 'admin'),
-], function () {
-
-  //Route::get('/students','AdminSingleController@students')->name('admin.students');
-  Route::get('/new_students','AdminSingleController@new_students')->name('admin.new_students');
-  Route::get('/all_students','AdminSingleController@all_students')->name('admin.all_students');
-  Route::get('students/{student_id}/activate','AdminSingleController@activateAccount')->name('student.activate_account');
-  Route::post('students/{id}/update','AdminSingleController@updateStudent')->name('student.update');
-  Route::post('students/{id}/delete','AdminSingleController@deleteStudent')->name('student.destroy');
-  Route::post('/students/add_to_class','AdminSingleController@addToClass')->name('students.add_to_class');
-  Route::post('/students/add_absence','AdminSingleController@addAbsence')->name('students.add_absence');
-  Route::get('/students/{student_id}/marks','AdminSingleController@Marks')->name('students.marks');
-  Route::post('/students/{student_id}/marks/update','AdminSingleController@updateMarks')->name('students.update_marks');
 });
