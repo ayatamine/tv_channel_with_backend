@@ -69,30 +69,9 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Welcom to the Students Space
+                    Welcom to the hadramout tv channel
                 </div>
 
-                <div class="links">
-                    @if (Route::has('login'))
-                <div class=" links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" style="    background: #03A9F4;
-                        padding: 0.4rem 2rem;
-                        color: #fff;margin-right:1rem;
-                        font-weight: bold;">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" style="    background: #4CAF50;
-                            padding: 0.4rem 2rem;
-                            color: #fff;
-                            font-weight: bold;">Register</a>
-                        @endif
-                    @endauth
-                </div>
-                @endif
-                </div>
             </div>
         </div>
     </body>
