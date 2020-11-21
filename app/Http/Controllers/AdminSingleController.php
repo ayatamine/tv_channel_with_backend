@@ -7,6 +7,9 @@ use Session;
 use Illuminate\Support\Facades\Hash;
 use App\Setting;
 use App\Lives;
+use App\ContactMessage;
+use App\Http\Requests\ContactMessageRequest;
+use Illuminate\Support\Facades\Mail;
 class AdminSingleController extends Controller
 {
     public function _construct(){
@@ -71,5 +74,19 @@ class AdminSingleController extends Controller
         $live->save();
         Session::flash('success','تم رفع النقاط بنجاح');
         return back();
+  }
+  public function sendContactMessage(ContactMessageRequest $request){
+        $message = ContactMessage::create($request->validated());
+        $email_to = Setting::first()->site_email;
+        Mail::send('mails.contact_message', ['title' => 'اشعار', 'content' => $message,
+            'from' => Setting::first()->site_name,], function ($message) use ($request, $email_to) {
+
+            $message->subject('رسالة جديدة من صفحة اتصل بنا');
+
+            $message->to($email_to);
+        });
+        $request->session()->flash('success', ' تم الارسال بنجاح');
+        return back();
+
   }
 }

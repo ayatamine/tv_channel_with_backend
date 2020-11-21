@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="{{asset('assets/mobirise/css/mbr-additional.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('assets/css/font-awesome.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('assets/css/new_style.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('assets/css/programs.css')}}" type="text/css">
 </head>
 <body>
     <div id="app" style="background-color: #f5f5f5;" dir="rtl">
@@ -70,15 +71,15 @@
                                 <li class="nav-item">
                                     <a class="nav-link link text-white display-6
                                     @if((Request::segment(1) =='') || Request::segment(1) =='home') active @endif"
-                                     href="{{route('home')}}">الرئيسية</a>
+                                    href="{{route('home')}}">الرئيسية</a>
                                 </li>
                                 <li class="nav-item"><a class="nav-link link text-white display-6
                                     @if(Request::segment(1) =='live') active @endif"
-                                    href="{{route('live')}}">
+                                     href="{{route('live')}}">
                                     البث المباشر</a></li>
                                 <li class="nav-item"><a class="nav-link link text-white display-6
                                     @if(Request::segment(1) =='programs') active @endif"
-                                    href="{{route('programs')}}">البرامج</a></li>
+                                     href="{{route('programs')}}">البرامج</a></li>
                                 <li class="nav-item">
                                     <a class="nav-link link text-white display-6" href="#contact-form">تواصل معنا</a>
                                 </li>
@@ -87,6 +88,35 @@
                         </div>
                     </div>
                 </nav>
+            </section>
+            <section class="carousel slide cid-sggklav0gr" data-interval="false" id="slider1-3" style="height:300px" >
+
+
+
+                <div class="full-screen">
+                    <div class="mbr-slider slide carousel" data-keyboard="false" data-ride="false" data-interval="3000" data-pause="true">
+                        <div class="carousel-inner" role="listbox">
+                            <div class="carousel-item slider-fullscreen-image active" data-bg-video-slide="false" style="background-image: url(assets/images/background1.jpg);">
+                                <div class="container container-slide">
+                                    <div class="image_wrapper">
+                                        <div class="mbr-overlay" style="opacity: 0.8;background-color: rgb(1 37 101);"></div><img src="assets/images/background1.jpg" alt="" title="">
+                                        <div class="carousel-caption justify-content-center">
+                                            <div class="container text-right w-100 pr-3 " id="page-title">
+                                                <div class="">
+                                                    <h2 class="mbr-fonts-style pr-3  text-center">
+                                                       {{$title}}
+                                                        &nbsp;</h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><a data-app-prevent-settings="" class="carousel-control carousel-control-prev" role="button" data-slide="prev" href="#slider1-3"><span aria-hidden="true" class="mbri-left mbr-iconfont"></span><span class="sr-only">Previous</span></a>
+                        <a data-app-prevent-settings="" class="carousel-control carousel-control-next" role="button" data-slide="next" href="#slider1-3"><span aria-hidden="true" class="mbri-right mbr-iconfont"></span><span class="sr-only">Next</span></a>
+                    </div>
+                </div>
+
             </section>
             @yield('content')
             <section once="footers" class="cid-sggxbRnqr0" id="footer7-m">

@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('title','الرئيسية')
 @section('content')
-
     <section class="menu cid-sgk2LE65xo" once="menu" id="menu2-y">
 
 
@@ -9,10 +8,10 @@
         <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm bg-color transparent">
             <div class="container pt-2">
                 <div class="d-none d-lg-flex justify-content-center top-social-media ">
-                    <div class="social-icon"><a href=""><i class="fa fa-facebook"></i></a></div>
-                    <div class="social-icon"><a href=""><i class="fa fa-twitter"></i></a></div>
-                    <div class="social-icon"><a href=""><i class="fa fa-youtube"></i></a></div>
-                    <div class="social-icon"><a href=""><i class="fa fa-instagram"></i></a></div>
+                    <div class="social-icon"><a href="{{$settings->facebook_link}}"><i class="fa fa-facebook"></i></a></div>
+                    <div class="social-icon"><a href="{{$settings->twitter_link}}"><i class="fa fa-twitter"></i></a></div>
+                    <div class="social-icon"><a href="{{$settings->youtube_link}}"><i class="fa fa-youtube"></i></a></div>
+                    <div class="social-icon"><a href="{{$settings->instagram_link}}"><i class="fa fa-instagram"></i></a></div>
                 </div>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <div class="hamburger">
@@ -25,8 +24,8 @@
                 <div class="menu-logo">
                     <div class="navbar-brand">
                         <span class="navbar-logo">
-                        <a href="">
-                            <img src="assets/images/logo.png" alt="logo" title="" style="height: 3.8rem;">
+                        <a href="{{route('home')}}">
+                            <img src="{{asset('img').'/'.$settings->logo}}" alt="logo" title="" style="height: 3.8rem;">
                         </a>
                     </span>
 
@@ -36,7 +35,7 @@
 
                     <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
                         <li class="nav-item">
-                            <a class="nav-link link text-white display-6 active" href="index.html">الرئيسية</a>
+                            <a class="nav-link link text-white display-6 active" href="{{route('home')}}">الرئيسية</a>
                         </li>
                         <li class="nav-item"><a class="nav-link link text-white display-6" href="lives.html">
                             البث المباشر</a></li>
@@ -57,12 +56,13 @@
 
 
         <div class="full-screen">
-            <div class="mbr-slider slide carousel" data-keyboard="false" data-ride="false" data-interval="3000" data-pause="true">
+            <div class="mbr-slider slide carousel" data-keyboard="false" data-ride="carousel" data-interval="5000" data-pause="true">
                 <div class="carousel-inner" role="listbox">
-                    <div class="carousel-item slider-fullscreen-image active" data-bg-video-slide="false" style="background-image: url(assets/images/background1.jpg);">
+                    @foreach ($sliders as $slider)
+                    <div class="carousel-item slider-fullscreen-image {{$loop->first ? 'active' : '' }}" data-bg-video-slide="false" style="background-image: url(img/sliders/{{$slider->image}});">
                         <div class="container container-slide">
                             <div class="image_wrapper">
-                                <div class="mbr-overlay" style="opacity: 0.8;background-color: rgb(1 37 101);max-height: 690px;"></div><img src="assets/images/background1.jpg" alt="" title="">
+                                <div class="mbr-overlay" style="opacity: 0.8;background-color: rgb(1 37 101);max-height: 690px;"></div><img src="img/sliders/{{$slider->image}}" alt="" title="">
                                 <!--   <div class="carousel-caption justify-content-center">
                                     <div class="container text-right w-100 pr-3">
                                         <div class="">
@@ -74,21 +74,7 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="carousel-item slider-fullscreen-image " data-bg-video-slide="false" style="background-image: url(assets/images/background2.jpg);">
-                        <div class="container container-slide">
-                            <div class="image_wrapper">
-                                <div class="mbr-overlay" style="opacity: 0.7; background-color: rgb(0, 56, 130);"></div><img src="assets/images/background2.jpg" alt="" title="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item slider-fullscreen-image" data-bg-video-slide="false" style="background-image: url(assets/images/background3.jpg);">
-                        <div class="container container-slide">
-                            <div class="image_wrapper">
-                                <div class="mbr-overlay" style="opacity: 0.7; background-color: rgb(2, 46, 105);"></div><img src="assets/images/background3.jpg" alt="" title="">
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div><a data-app-prevent-settings="" class="carousel-control carousel-control-prev" role="button" data-slide="prev" href="#slider1-3"><span aria-hidden="true" class="mbri-left mbr-iconfont"></span><span class="sr-only">Previous</span></a>
                 <a data-app-prevent-settings="" class="carousel-control carousel-control-next" role="button" data-slide="next" href="#slider1-3"><span aria-hidden="true" class="mbri-right mbr-iconfont"></span><span class="sr-only">Next</span></a>
             </div>
@@ -141,7 +127,7 @@
                         <span></span>
                         <a class="font-weight-bolder" href="lives.html">البث المباشر</a>
                     </h5>
-                    <iframe class="mbr-embedded-video" src="https://www.youtube.com/embed/uNCr7NdOJgw?rel=0&amp;amp;showinfo=0&amp;autoplay=0&amp;loop=0" width="1280" height="720" frameborder="0" allowfullscreen></iframe></div>
+                    <iframe class="mbr-embedded-video" src="https://www.youtube.com/embed/{{$live->link}}?rel=0&amp;amp;showinfo=0&amp;autoplay=0&amp;loop=0" width="1280" height="720" frameborder="0" allowfullscreen></iframe></div>
 
             </div>
         </div>
@@ -166,65 +152,55 @@
                 <div class="carousel-inner" data-visible="5">
 
 
-
-
-
-                    <div class="carousel-item pr-4 pl-4">
-                        <div class="media-container-row">
-                            <div class="col-md-4 program-wrapper">
-                                <a href="" class="wrap-img ">
-                                    <img src="assets/images/المحبره-والقلم2.png" class="img-responsive programs-img">
-                                </a>
-                                <h5 class="mt-3">
-                                    <a href="" class="text-white">زمن الورد</a>
-                                </h5>
-                            </div>
-                            <div class="col-md-4 program-wrapper">
-                                <a href="" class="wrap-img ">
-                                    <img src="assets/images/زمن-الرواد.png" class="img-responsive programs-img">
-                                </a>
-                                <h5 class="mt-3">
-                                    <a href="" class="text-white">زمن الورد</a>
-                                </h5>
-                            </div>
-                            <div class="col-md-4 program-wrapper">
-                                <a href="" class="wrap-img ">
-                                    <img src="assets/images/سباق-الخميس.png" class="img-responsive programs-img">
-                                </a>
-                                <h5 class="mt-3">
-                                    <a href="" class="text-white">زمن الورد</a>
-                                </h5>
+                    @if((count($programs1) > 0 ))
+                        <div class="carousel-item pr-4 pl-4">
+                            <div class="media-container-row">
+                                @foreach($programs1 as $p)
+                                <div class="col-md-4 program-wrapper">
+                                    <a href="" class="wrap-img ">
+                                        <img src="img/programs/{{$p->thumbnail}}" class="img-responsive programs-img">
+                                    </a>
+                                    <h5 class="mt-3">
+                                        <a href="" class="text-white">{{$p->title}}</a>
+                                    </h5>
+                                </div>
+                                @endforeach
                             </div>
                         </div>
-                    </div>
-                    <div class="carousel-item pr-4 pl-4">
-                        <div class="media-container-row">
-                            <div class="col-md-4 program-wrapper">
-                                <a href="" class="wrap-img ">
-                                    <img src="assets/images/المحبره-والقلم2.png" class="img-responsive programs-img">
-                                </a>
-                                <h5 class="mt-3">
-                                    <a href="" class="text-white">زمن الورد</a>
-                                </h5>
-                            </div>
-                            <div class="col-md-4 program-wrapper">
-                                <a href="" class="wrap-img ">
-                                    <img src="assets/images/زمن-الرواد.png" class="img-responsive programs-img">
-                                </a>
-                                <h5 class="mt-3">
-                                    <a href="" class="text-white">زمن الورد</a>
-                                </h5>
-                            </div>
-                            <div class="col-md-4 program-wrapper">
-                                <a href="" class="wrap-img ">
-                                    <img src="assets/images/سباق-الخميس.png" class="img-responsive programs-img">
-                                </a>
-                                <h5 class="mt-3">
-                                    <a href="" class="text-white">زمن الورد</a>
-                                </h5>
+                    @endif
+                    @if((count($programs2) > 0 ))
+                        <div class="carousel-item pr-4 pl-4">
+                            <div class="media-container-row">
+                                @foreach($programs2 as $p)
+                                <div class="col-md-4 program-wrapper">
+                                    <a href="" class="wrap-img ">
+                                        <img src="img/programs/{{$p->thumbnail}}" class="img-responsive programs-img">
+                                    </a>
+                                    <h5 class="mt-3">
+                                        <a href="" class="text-white">{{$p->title}}</a>
+                                    </h5>
+                                </div>
+                                @endforeach
                             </div>
                         </div>
-                    </div>
+                    @endif
+                    @if((count($programs3) > 0 ))
+                        <div class="carousel-item pr-4 pl-4">
+                            <div class="media-container-row">
+                                @foreach($programs3 as $p)
+                                <div class="col-md-4 program-wrapper">
+                                    <a href="" class="wrap-img ">
+                                        <img src="img/programs/{{$p->thumbnail}}" class="img-responsive programs-img">
+                                    </a>
+                                    <h5 class="mt-3">
+                                        <a href="" class="text-white">{{$p->title}}</a>
+                                    </h5>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
+
                     <div class="carousel-controls">
                         <a data-app-prevent-settings="" class="carousel-control carousel-control-next" role="button" data-slide="next">
                             <span aria-hidden="true" class="mbri-right mbr-iconfont"></span>
@@ -238,43 +214,54 @@
                     </div>
                 </div>
             </div>
-            <div id="carouselExampleControls" class="carousel slide d-sm-none" data-ride="carousel">
+            <div id="carouselExampleControls" class="carousel slide d-sm-none" data-ride="carousel" data-interval="4000" data-pause="true">
                 <div class="carousel-inner row text-center">
+                    @if((count($programs1) > 0 ))
+                    @foreach ($programs1 as $p)
 
-                    <div class="program-wrapper carousel-item active" style="margin: auto;
-                    height: 350px;
-                    padding: 3rem;
+
+                    <div class="program-wrapper carousel-item {{$loop->first ? 'active' :''}}" style="
+                    height: 380px;
+                    padding: 2rem 3rem;
                     align-items: center;
                     justify-content: center;">
-                        <div class="col-10" style="height: 80%;">
+                        <div class="col-9" style="height: 80%;">
                             <a href="" class="wrap-img ">
-                                <img src="assets/images/المحبره-والقلم2.png" class="img-responsive programs-img h-100">
+                                <img src="{{asset('img/programs/').'/'.$p->thumbnail}}" class="img-responsive programs-img h-100 w-100">
                             </a>
                             <h5 class="mt-3">
-                                <a href="" class="text-white">زمن الورد</a>
+                                <a href="" class="text-white">{{$p->title}}</a>
                             </h5>
                         </div>
                     </div>
-                    <div class="program-wrapper carousel-item " style="margin: auto;
-                    height: 350px;
-                    padding: 3rem;
+                    @endforeach
+                    @endif
+                    @if((count($programs2) > 0 ))
+                    @foreach ($programs2 as $p)
+
+
+                    <div class="program-wrapper carousel-item " style="
+                    height: 380px;
+                    padding: 2rem 3rem;
                     align-items: center;
                     justify-content: center;">
-                        <div class="col-10" style="height: 80%;">
+                        <div class="col-9" style="height: 80%;">
                             <a href="" class="wrap-img ">
-                                <img src="assets/images/slider.png" class="img-responsive programs-img h-100">
+                                <img src="{{asset('img/programs/').'/'.$p->thumbnail}}" class="img-responsive programs-img h-100 w-100">
                             </a>
                             <h5 class="mt-3">
-                                <a href="" class="text-white">زمن الورد</a>
+                                <a href="" class="text-white">{{$p->title}}</a>
                             </h5>
                         </div>
                     </div>
+                    @endforeach
+                    @endif
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <a class="carousel-control-prev" href="#programs-section-carousel" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                 </a>
-                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <a class="carousel-control-next" href="#programs-section-carousel" role="button" data-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
@@ -286,104 +273,18 @@
     </section>
 
 
-    <section once="footers" class="cid-sggxbRnqr0" id="footer7-m">
-
-
-        <div class="container" dir='rtl'>
-            <div class="row">
-                <div class="col-md-7 m-auto m-sm-0">
-                    <h3 class="mbr-section-title mbr-white pb-3 mbr-fonts-style font-weight-bolder sidelines text-white text-right">
-                        </span>تواصل معنا<span class="header left"></span>
-                    </h3>
-                    <form method="post" id="contact-form">
-
-                        <div class="row mb-3 ">
-                            <div class="group col-sm-6">
-                                <input type="text" required>
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label>الاسم *</label>
-                            </div>
-
-                            <div class="group col-sm-6">
-                                <input type="email" required>
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label>البريد الالكتروني *</label>
-                            </div>
-                        </div>
-                        <div class="row mb-3 ">
-                            <div class="group col-sm-6">
-                                <input type="text" id="phone_number" valid>
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label id="phonelabel">رقم الجوال</label>
-                            </div>
-
-                            <div class="group col-sm-6">
-                                <input type="text" required>
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label>الموضوع *</label>
-                            </div>
-                        </div>
-                        <div class="row mb-3 ">
-                            <div class="group col-sm-12">
-                                <textarea name="" id="" rows="2" required></textarea>
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label>نص الرسالة*</label>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn btn-submit float-right">إرسال</button>
 
 
 
-                    </form>
-                </div>
-                <div class="col-md-5 contact-section">
-                    <h2 class="mbr-section-title mbr-white pb-4 mbr-fonts-style font-weight-bolder sidelines text-white text-right">
-                        تواصل معنا<span class="header left"></span>
-                    </h2>
+@endsection
+@section('js')
+<script>
 
-                    <div class="pt-1">
-                        <h5>معلومات التواصل</h5>
-                        <ul class=" list-unstyled p-0 mt-2">
-                            <li>
-                                هن االعنوان او الموقع <i class="fa fa-location-arrow ml-1" aria-hidden="true"></i>
-                            </li>
-                            <li>
-                                (+647) 0687459215 <i class="fa fa-phone ml-1" aria-hidden="true"></i>
-                            </li>
-                            <li>
-                                (+647) 6874515 <i class="fa fa-fax ml-1" aria-hidden="true"></i>
-                            </li>
+    $('#programs-section-carousel > a.carousel-control-prev').click(function(e){
+    e.stopPropagation();
+        $('#carouselExampleControls').carousel('prev');
+        console.log('prev');
 
-                        </ul>
-
-
-                    </div>
-                </div>
-            </div>
-            <div class="text-center col-12 mt-5" id="copyright-section">
-                <img src="assets/images/logo.png" alt="" class='img-responsive' id="logo-footer">
-                <h6 class="text-white mt-3 mb-4">
-                    جميع الحقوق محفوظة
-                </h6>
-                <li class="list-unstyled">
-                    <div class=" d-flex justify-content-center">
-                        <div class="social-icon"><a href=""><i class="fa fa-facebook"></i></a></div>
-                        <div class="social-icon"><a href=""><i class="fa fa-twitter"></i></a></div>
-                        <div class="social-icon"><a href=""><i class="fa fa-youtube"></i></a></div>
-                        <div class="social-icon"><a href=""><i class="fa fa-instagram"></i></a></div>
-                    </div>
-
-                </li>
-            </div>
-
-        </div>
-    </section>
-
-
+});
+</script>
 @endsection

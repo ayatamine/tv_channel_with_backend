@@ -12,7 +12,7 @@ class LiveSeeder extends Seeder
     public function run()
     {
        \App\Lives::create([
-           'link'=>'https://youtu.be/U0yLJenRuKQ'
+           'link'=>'U0yLJenRuKQ'
        ]);
     }
 }

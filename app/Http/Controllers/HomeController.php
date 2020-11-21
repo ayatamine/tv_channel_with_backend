@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Auth;
-use App\User;
 use App\Program;
 use App\Lives;
+use App\Slider;
 class HomeController extends Controller
 {
     /**
@@ -26,9 +25,32 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $programs = Program::latest()->take(9);
+        $programs1 = Program::latest()->take(3)->get();
+        $programs2 = Program::latest()->skip(3)->take(3)->get();
+        $programs3 = Program::latest()->skip(6)->take(3)->get();
         $live = Lives::findorfail(1);
-        return view('home',compact('programs','live'));
+        $sliders = Slider::get();
+        return view('home',compact('programs1','programs2','programs3','live','sliders'));
     }
+    public function live()
+    {
+        $live = Lives::findorfail(1);
+        $title = 'البث المباشر';
+        return view('live',compact('live','title'));
+    }
+    public function programs()
+    {
+        $programs = Program::latest()->take(6)->get();
+        $title = 'البرامج';
+        return view('programs',compact('programs','title'));
+    }
+    public function loadMorePrograms(Request $request)
+    {
+        if($request->ajax()){
+          $programs = Program::latest()->skip($request->skip_number)->take(6)->get();
+        }
+        return response()->json($programs);
+    }
+
 
 }
