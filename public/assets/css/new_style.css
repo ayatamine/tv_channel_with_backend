@@ -131,6 +131,17 @@ the carousel
 }
 */
 
+
+/* .cid-sggklav0gr .full-screen .slider-fullscreen-image,
+.cid-sggklav0gr .full-screen .carousel-item .container.container-slide {
+    min-height: 300px;
+} */
+
+.cid-sggklav0gr,
+.cid-sggklav0gr .carousel-inner {
+    max-height: 34rem;
+}
+
 .mbr-section-title {
     font-family: agcbold;
 }

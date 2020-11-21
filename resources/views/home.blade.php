@@ -51,7 +51,7 @@
     </section>
 
     <!-- <section class="engine"><a href="https://mobirise.info/q">responsive web templates</a></section> -->
-    <section class="carousel slide cid-sggklav0gr" data-interval="false" id="slider1-3" style="max-height:690px">
+    <section class="carousel slide cid-sggklav0gr" data-interval="false" id="slider1-3" >
 
 
 
