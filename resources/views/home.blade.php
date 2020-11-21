@@ -112,22 +112,24 @@
                         <span></span>نبدة عنا
                     </h5>
                     <div class="mbr-section-text mbr-white pb-3">
-                        <p class="mbr-text mbr-fonts-style ">
-                            قطاع تلفزيون حضرموت، منصة إعلامية رسمية للأحداث والفعاليات في حضرموت واليمن، تمثّل إضافة إعلامية في تقديم خدمة برامجية متميزة من البرامج الإخبارية والسياسية والمتنوعة. جاء انطلاق قطاع تلفزيون حضرموت ، كمنصة إعلامية رسمية للأحداث والفعاليات في حضرموت واليمن
-                            ، تنطلق من الدور الريادي لحضرموت في مجال الإعلام ومن عبق تاريخ وحضارة حضرموت عبر الأزمان ، وتعمل على تقديم مجموعة من البرامج الإخبارية والسياسية والاقتصادية والمنوعة، إلى جانب دورها الكبير في إنتاج العديد من الأعمال الدرامية
-                            والفنية. بدأت إطلاق بثها التجريبي في العاشر من شهر فبراير من العام 2020م لتكون المنبر الإعلامي الذي ينقل الإبداع والتجدد في نبض حضرموت والوطن
+                        <p class="mbr-text mbr-fonts-style " style="line-height: 1.7;">
+                            قطاع تلفزيون حضرموت، منصة إعلامية رسمية للأحداث والفعاليات في حضرموت واليمن، تمثّل إضافة إعلامية في تقديم خدمة برامجية متميزة من البرامج الإخبارية والسياسية والمتنوعة. <br>
+                             جاء انطلاق قطاع تلفزيون حضرموت ، كمنصة إعلامية رسمية للأحداث والفعاليات في حضرموت واليمن ، تنطلق من الدور الريادي لحضرموت في مجال الإعلام ومن عبق تاريخ وحضارة حضرموت عبر الأزمان ، وتعمل على تقديم مجموعة من البرامج الإخبارية والسياسية والاقتصادية والمنوعة، إلى جانب دورها الكبير في إنتاج العديد من الأعمال الدرامية
+                            والفنية. <br> بدأت إطلاق بثها التجريبي في العاشر من شهر فبراير من العام 2020م لتكون المنبر الإعلامي الذي ينقل الإبداع والتجدد في نبض حضرموت والوطن
 
                         </p>
                     </div>
 
                 </div>
 
-                <div class="mbr-figure pr-2 text-right" style="width: 100%;margin-top: -2rem;">
+                <div class="mbr-figure pr-2 text-right" style="width: 100%;margin-top: -3rem;">
                     <h5 class="mbr-section-title mbr-white pb-3 mbr-fonts-style font-weight-bolder sidelines">
                         <span></span>
                         <a class="font-weight-bolder" href="{{route('live')}}">البث المباشر</a>
                     </h5>
-                    <iframe class="mbr-embedded-video" src="https://www.youtube.com/embed/{{$live->link}}?rel=0&amp;amp;showinfo=0&amp;autoplay=0&amp;loop=0" width="1280" height="720" frameborder="0" allowfullscreen></iframe></div>
+                    <iframe class="mbr-embedded-video" style="    margin-top: 1rem;"
+                     src="https://www.youtube.com/embed/{{$live->link}}?rel=0&amp;amp;showinfo=0&amp;autoplay=0&amp;loop=0"
+                     width="1280" height="720" frameborder="0" allowfullscreen></iframe></div>
 
             </div>
         </div>

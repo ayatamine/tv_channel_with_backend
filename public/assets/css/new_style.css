@@ -4,6 +4,16 @@
 }
 
 @font-face {
+    font-family: agclight;
+    src: url('../fonts/AGCLight.ttf');
+}
+
+@font-face {
+    font-family: thesans;
+    src: url('../fonts/ArbFONTS-TheSans-Plain.otf');
+}
+
+@font-face {
     font-family: agcbold;
     src: url('../fonts/AGCBold.ttf');
 }
@@ -16,6 +26,10 @@ body,
 .display-5 {
     font-family: agcregular;
     font-kerning: none;
+}
+
+.mbr-section-text {
+    font-family: thesans;
 }
 
 .full-screen {
@@ -57,7 +71,6 @@ html {
 .navbar-short .nav-item .nav-link,
 .navbar-toggleable-sm .nav-item .nav-link {
     color: #fff !important;
-    font-weight: 600;
 }
 
 .nav-item .nav-link.active {
@@ -117,6 +130,10 @@ the carousel
     min-height: 490px !important;
 }
 */
+
+.mbr-section-title {
+    font-family: agcbold;
+}
 
 .carousel-control {
     display: none;
