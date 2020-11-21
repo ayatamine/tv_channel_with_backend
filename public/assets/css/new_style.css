@@ -15,6 +15,7 @@ body,
 .display-4,
 .display-5 {
     font-family: agcregular;
+    font-kerning: none;
 }
 
 .full-screen {
@@ -189,6 +190,7 @@ the carousel
 
 .signal-channel mbr-text {
     font-family: 'agcregular';
+    font-kerning: none;
     color: #4a4848;
     line-height: 1.8;
 }
@@ -232,7 +234,8 @@ the carousel
 
 /*programs section */
 
-#programs-section {
+#programs-section,
+#programs-sm-section {
     background-color: #072174;
     background: linear-gradient(#072174, #0c2b8e);
 }

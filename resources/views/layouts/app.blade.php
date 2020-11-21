@@ -178,14 +178,14 @@
                                 <h5>معلومات التواصل</h5>
                                 <ul class=" list-unstyled p-0 mt-2">
                                     <li>
-                                        {{$settings->address }}<i class="fa fa-location-arrow ml-1" aria-hidden="true"></i>
+                                        {{$settings->address }}<i class="fa fa-location-arrow ml-2" aria-hidden="true"></i>
                                     </li>
                                     <li>
-                                        {{$settings->phone}} <i class="fa fa-phone ml-1" aria-hidden="true"></i>
+                                        {{$settings->phone}} <i class="fa fa-phone ml-2" aria-hidden="true"></i>
                                     </li>
                                     @if($settings->fax != '')
                                     <li>
-                                        {{$settings->fax}}<i class="fa fa-fax ml-1" aria-hidden="true"></i>
+                                        {{$settings->fax}}<i class="fa fa-fax ml-2" aria-hidden="true"></i>
                                     </li>
                                     @endif
 

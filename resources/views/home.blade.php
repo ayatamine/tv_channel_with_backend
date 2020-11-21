@@ -37,9 +37,9 @@
                         <li class="nav-item">
                             <a class="nav-link link text-white display-6 active" href="{{route('home')}}">الرئيسية</a>
                         </li>
-                        <li class="nav-item"><a class="nav-link link text-white display-6" href="lives.html">
+                        <li class="nav-item"><a class="nav-link link text-white display-6" href="{{route('live')}}">
                             البث المباشر</a></li>
-                        <li class="nav-item"><a class="nav-link link text-white display-6" href="programs.html">البرامج</a></li>
+                        <li class="nav-item"><a class="nav-link link text-white display-6" href="{{route('programs')}}">البرامج</a></li>
                         <li class="nav-item">
                             <a class="nav-link link text-white display-6" href="#contact-form">تواصل معنا</a>
                         </li>
@@ -125,7 +125,7 @@
                 <div class="mbr-figure pr-2 text-right" style="width: 100%;margin-top: -2rem;">
                     <h5 class="mbr-section-title mbr-white pb-3 mbr-fonts-style font-weight-bolder sidelines">
                         <span></span>
-                        <a class="font-weight-bolder" href="lives.html">البث المباشر</a>
+                        <a class="font-weight-bolder" href="{{route('live')}}">البث المباشر</a>
                     </h5>
                     <iframe class="mbr-embedded-video" src="https://www.youtube.com/embed/{{$live->link}}?rel=0&amp;amp;showinfo=0&amp;autoplay=0&amp;loop=0" width="1280" height="720" frameborder="0" allowfullscreen></iframe></div>
 
@@ -133,7 +133,7 @@
         </div>
     </section>
 
-    <section class="clients cid-sggx34dSJt pb-4" data-interval="false" id="programs-section">
+    <section class="clients cid-sggx34dSJt pb-4 d-none d-sm-block" data-interval="false" id="programs-section">
 
 
 
@@ -148,7 +148,7 @@
         </div>
 
         <div class="container">
-            <div class="carousel slide d-none d-sm-block" role="listbox" data-pause="true" data-keyboard="false" data-ride="carousel" data-interval="5000">
+            <div class="carousel slide " role="listbox" data-pause="true" data-keyboard="false" data-ride="carousel" data-interval="5000">
                 <div class="carousel-inner" data-visible="5">
 
 
@@ -214,7 +214,28 @@
                     </div>
                 </div>
             </div>
-            <div id="carouselExampleControls" class="carousel slide d-sm-none" data-ride="carousel" data-interval="4000" data-pause="true">
+            <div class="text-center mt-3 pt-2">
+                <a href="{{route('programs')}}" class="btn bg-white  font-weight-bold btn-lg more-programs-btn">المزيد</a>
+            </div>
+    </section>
+    <section class="clients cid-sggx34dSJt pb-4 d-sm-none" data-interval="false" id="programs-sm-section">
+
+
+
+        <div class="container mb-5">
+            <div class="media-container-row">
+                <div class="col-12 align-center">
+                    <h3 class="mbr-section-title mbr-white pb-3 mbr-fonts-style font-weight-bolder sidelines text-white">
+                        <span class="header right"></span>البرامج<span class="header left"></span>
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div id="carouselExampleControls" class="carousel slide "
+              data-ride="carousel" data-interval="4000" data-pause="true">
                 <div class="carousel-inner row text-center">
                     @if((count($programs1) > 0 ))
                     @foreach ($programs1 as $p)
@@ -257,18 +278,18 @@
                     @endforeach
                     @endif
                 </div>
-                <a class="carousel-control-prev" href="#programs-section-carousel" role="button" data-slide="prev">
+                <a class="carousel-control-prev" href="#programs-sm-section-carousel" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                 </a>
-                <a class="carousel-control-next" href="#programs-section-carousel" role="button" data-slide="next">
+                <a class="carousel-control-next" href="#programs-sm-section-carousel" role="button" data-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
             </div>
 
             <div class="text-center mt-3 pt-2">
-                <a href="programs.html" class="btn bg-white  font-weight-bold btn-lg more-programs-btn">المزيد</a>
+                <a href="{{route('programs')}}" class="btn bg-white  font-weight-bold btn-lg more-programs-btn">المزيد</a>
             </div>
     </section>
 
@@ -285,6 +306,6 @@
         $('#carouselExampleControls').carousel('prev');
         console.log('prev');
 
-});
+    });
 </script>
 @endsection
