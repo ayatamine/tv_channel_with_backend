@@ -9,8 +9,7 @@
 
     <title>@yield('title')</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <link rel="icon" href="{{asset('/img').'/'.$settings->logo}}" type="image/png" sizes="16x16">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

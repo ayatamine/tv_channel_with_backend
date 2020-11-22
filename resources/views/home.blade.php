@@ -135,7 +135,7 @@
         </div>
     </section>
 
-    <section class="clients cid-sggx34dSJt pb-4 d-none d-sm-block" data-interval="false" id="programs-section">
+    <section class="clients cid-sggx34dSJt pb-4 d-none d-sm-block" data-interval="false"  id="programs-lg-section">
 
 
 
@@ -150,10 +150,10 @@
         </div>
 
         <div class="container">
-            <div class="carousel slide " role="listbox" data-pause="true" data-keyboard="false" data-ride="carousel" data-interval="5000">
-                <div class="carousel-inner" data-visible="5">
 
-
+            <div id="carouselExampleControls2" class="carousel slide "
+              data-ride="carousel" data-interval="4000" data-pause="true">
+                <div class="carousel-inner row text-center">
                     @if((count($programs1) > 0 ))
                         <div class="carousel-item pr-4 pl-4">
                             <div class="media-container-row">
@@ -202,20 +202,22 @@
                             </div>
                         </div>
                     @endif
-
-                    <div class="carousel-controls">
-                        <a data-app-prevent-settings="" class="carousel-control carousel-control-next" role="button" data-slide="next">
-                            <span aria-hidden="true" class="mbri-right mbr-iconfont"></span>
-                            <span class="sr-only">Suivant</span>
-                        </a>
-                        <a data-app-prevent-settings="" class="carousel-control carousel-control-prev" role="button" data-slide="prev">
-                            <span aria-hidden="true" class="mbri-left mbr-iconfont"></span>
-                            <span class="sr-only">Précédent</span>
-                        </a>
-
-                    </div>
                 </div>
+                <a class="carousel-control-prev prev-program-carousel"
+                href="#programs-lg-section-carousel" role="button" data-slide="prev">
+                    {{-- <span class="carousel-control-prev-icon d-none" aria-hidden="true"></span> --}}
+                    <span class="circle-control-icon"><i class="fa fa-chevron-left" class="carousel-control-prev-icon" aria-hidden="true"></i></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next next-program-carousel"
+                  href="#programs-lg-section-carousel" role="button" data-slide="next">
+                    {{-- <span class="carousel-control-next-icon " aria-hidden="true"></span> --}}
+                    <span class="circle-control-icon"><i class="fa fa-chevron-right" class="carousel-control-prev-icon" aria-hidden="true"></i></span>
+
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
+
             <div class="text-center mt-3 pt-2">
                 <a href="{{route('programs')}}" class="btn bg-white  font-weight-bold btn-lg more-programs-btn">المزيد</a>
             </div>
@@ -281,11 +283,14 @@
                     @endif
                 </div>
                 <a class="carousel-control-prev" href="#programs-sm-section-carousel" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    {{-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> --}}
+                    <span class="circle-control-icon"><i class="fa fa-chevron-left" class="carousel-control-prev-icon" aria-hidden="true"></i></span>
                     <span class="sr-only">Previous</span>
                 </a>
                 <a class="carousel-control-next" href="#programs-sm-section-carousel" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    {{-- <span class="carousel-control-next-icon" aria-hidden="true"></span> --}}
+                    <span class="circle-control-icon"><i class="fa fa-chevron-right" class="carousel-control-prev-icon" aria-hidden="true"></i></span>
+
                     <span class="sr-only">Next</span>
                 </a>
             </div>

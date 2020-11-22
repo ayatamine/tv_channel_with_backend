@@ -154,6 +154,22 @@ the carousel
     font-size: 4.25rem;
 }
 
+.next-program-carousel {
+    justify-content: flex-start;
+    width: 3%;
+}
+
+.prev-program-carousel {
+    justify-content: flex-end;
+    width: 3%;
+}
+
+.circle-control-icon {
+    padding: 0.2rem 0.6rem;
+    border: 1px solid;
+    border-radius: 50%;
+}
+
 .slider-title-btn {
     font-size: 4rem !important;
     padding: 0.1rem 1.7rem 1.2rem !important;
@@ -262,7 +278,7 @@ the carousel
 
 /*programs section */
 
-#programs-section,
+#programs-lg-section,
 #programs-sm-section {
     background-color: #072174;
     background: linear-gradient(#072174, #0c2b8e);
