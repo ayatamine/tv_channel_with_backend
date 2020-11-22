@@ -70,9 +70,15 @@ class AdminSingleController extends Controller
   public function updateLiveLink(Request $request){
         $this->validate($request,['link'=>'url']);
         $live = Lives::first();
-        $live->link = $request->link;
+        $subs_link = '';
+        if(str_contains($request->link, 'v=')){
+          $subs_link = explode('v=',$request->link)[1];
+        }else{
+          $subs_link = explode('.be/',$request->link)[1];
+        }
+        $live->link = $subs_link;
         $live->save();
-        Session::flash('success','تم رفع النقاط بنجاح');
+        Session::flash('success','تم تعديل الرابط بنجاح');
         return back();
   }
   public function sendContactMessage(ContactMessageRequest $request){

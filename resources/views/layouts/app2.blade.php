@@ -218,6 +218,9 @@
                                         {{$settings->fax}}<i class="fa fa-fax ml-2" aria-hidden="true"></i>
                                     </li>
                                     @endif
+                                    <li>
+                                        {{$settings->site_email}}<i class="fa fa-envelope ml-2" aria-hidden="true"></i>
+                                    </li>
 
                                 </ul>
 
@@ -228,7 +231,7 @@
                     <div class="text-center col-12 mt-5" id="copyright-section">
                         <img src="{{asset('img').'/'.$settings->logo}}" alt="" class='img-responsive' id="logo-footer">
                         <h6 class="text-white mt-3 mb-4">
-                            جميع الحقوق محفوظة
+                        جميع الحقوق محفوظة    {{date('Y')}}
                         </h6>
                         <li class="list-unstyled">
                             <div class=" d-flex justify-content-center">
