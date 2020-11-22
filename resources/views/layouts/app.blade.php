@@ -144,7 +144,7 @@
                                         @foreach ($errors->all() as $err)
 
                                           @endforeach
-                                        <div class="alert alert-dismissible fade show  mr-auto ml-auto mb-3" role="alert" style="background-color: #ff3d3d !important;">
+                                        <div class="alert alert-dismissible fade show  mr-auto ml-auto mb-3 text-center" role="alert" style="background-color: #ff3d3d !important;">
                                             {{ $err}}
                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                               <span aria-hidden="true">&times;</span>
@@ -153,7 +153,7 @@
                                       @endif
                                         @if(Session::has('success'))
 
-                                        <div class="alert alert-dismissible fade show  mr-auto ml-auto mb-3" role="alert" style="background-color:#269017 !important">
+                                        <div class="alert alert-dismissible fade show  mr-auto ml-auto mb-3 text-center" role="alert" style="background-color:#269017 !important">
                                                 {{Session::get('success')}}
                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
