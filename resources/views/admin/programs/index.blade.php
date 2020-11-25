@@ -65,6 +65,7 @@
                                         </td>
                                         <td>
                                           <a href="" type="button"
+                                              data-program={{$p}}
                                               data-update_url="{{route('programs.update',['program'=>$p->id])}}"
                                               data-program_image="{{asset('img/programs/'.$p->thumbnail)}}"
                                               data-target="#edit_program" data-toggle="modal"
@@ -165,13 +166,31 @@
                                 <img src=""" alt="" id="image_to_update" style="    width: 60%;
                                 height: 20%;    border: 2px solid #999;">
                               </div>
+
                               <div class="form-group">
                               <label for="image">تغيير</label>
                               <input type="file"  name="image"  class="form-control" id="image" >
                               </div>
-                              <div class="form-group">
-                              <label for="image">تغيير</label>
-                              <input type="file"  name="image"  class="form-control" id="image" >
+                              <hr>
+                              <div class="form-group row">
+                                <label for="title" class="col-3">العنوان</label>
+                                <input type="text"  name="title"  class="form-control col-9" id="title" value="" >
+                              </div>
+                              <div class="form-group row">
+                                <label for="type" class="col-3">النوع</label>
+                                <input type="text"  name="type"  class="form-control col-9" id="type" value="">
+                              </div>
+                              <div class="form-group row">
+                                <label for="duration" class="col-3">مدة المشاهدة</label>
+                                <input type="number"  name="duration"  class="form-control col-9" id="duration" value="">
+                              </div>
+                              <div class="form-group row">
+                                <label for="delay_at" class="col-3">أوقات المشاهدة</label>
+                                <textarea name="delay_at" id="" rows="3" class="form-control col-9"></textarea>
+                              </div>
+                              <div class="form-group row">
+                                <label for="description" class="col-3">وصف البرنامج</label>
+                                <textarea name="description" id="" rows="4" class="form-control col-9"></textarea>
                               </div>
 
                           </div>
@@ -227,6 +246,13 @@
       let update_url = $(this).data('update_url');
       $('#edit_program #image_to_update').attr('src',image);
       $('#edit_program_form').attr('action',update_url)
+      let program = $(this).data('program');
+      $('#edit_program_form input[name="title"]').val(program.title)
+      $('#edit_program_form input[name="type"]').val(program.type)
+      $('#edit_program_form input[name="duration"]').val(program.duration)
+      $('#edit_program_form textarea[name="delay_at"]').val(program.delay_at)
+      $('#edit_program_form textarea[name="description"]').val(program.description)
+
 
     })
   $(document).on('click','.delete_program',function(){

@@ -100,7 +100,32 @@ class ProgramsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $program = Program::findorfail($id);
+        $this->validate($request, [
+            'title'=>'string|required',
+            'type'=>'string|required',
+            'duration'=>'required|numeric',
+            'delay_at'=>'required',
+            'description' => 'required',
+        ]);
+        $filename = $program->thumbnail;
+        if($image = $request->image){
+           $filename = time() . '.' . $image->getClientOriginalName();
+
+           $image->move(public_path('img/programs/'), $filename);
+        }
+
+        $program->title = $request->title;
+        $program->type = $request->type;
+        $program->duration = $request->duration;
+        $program->delay_at = $request->delay_at;
+        $program->description =$request->description;
+        $program->thumbnail = $filename;
+        $program->save();
+
+        $request->session()->flash('success', 'تم التعديل بنجاح');
+
+        return redirect()->back();
     }
 
     /**
