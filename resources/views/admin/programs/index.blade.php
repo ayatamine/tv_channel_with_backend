@@ -65,7 +65,7 @@
                                         </td>
                                         <td>
                                           <a href="" type="button"
-                                              data-program={{$p}}
+                                              data-program="{{$p}}"
                                               data-update_url="{{route('programs.update',['program'=>$p->id])}}"
                                               data-program_image="{{asset('img/programs/'.$p->thumbnail)}}"
                                               data-target="#edit_program" data-toggle="modal"
@@ -247,6 +247,7 @@
       $('#edit_program #image_to_update').attr('src',image);
       $('#edit_program_form').attr('action',update_url)
       let program = $(this).data('program');
+      console.log(program);
       $('#edit_program_form input[name="title"]').val(program.title)
       $('#edit_program_form input[name="type"]').val(program.type)
       $('#edit_program_form input[name="duration"]').val(program.duration)
